@@ -37,5 +37,5 @@ Thermostat.prototype.MaxTemp = function() {
 };
 
 Thermostat.prototype.setPowersaveMaxTemp = function() {
-  this.temperature = this.powerSaveMaxTemp
+  this.temperature = (this.temperature > this.powerSaveMaxTemp) ? this.powerSaveMaxTemp : this.temperature
 };

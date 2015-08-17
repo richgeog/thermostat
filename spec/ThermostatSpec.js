@@ -91,6 +91,16 @@ describe ("Thermostat", function() {
       thermostat.powerSaveOn();
       expect(thermostat.showTemperature()).toEqual(25);
     })
+
+    it("it does not change temp if under max", function() {
+      thermostat.powerSaveOff();
+      for (i = 0; i < 10; i++) {
+        thermostat.decreaseTemperature();
+      }
+      thermostat.powerSaveOn();
+      expect(thermostat.showTemperature()).toEqual(10);
+    })
+
   });
 
   describe("reset temperature", function() {
