@@ -11,7 +11,6 @@ describe ("Thermostat", function() {
     it("temperature starts at 20", function() {
       expect(thermostat.showTemperature()).toEqual(20);
     });
-
   });
 
   describe("temperature increase", function() {
@@ -33,9 +32,10 @@ describe ("Thermostat", function() {
         for (i = 0; i < 13; i++) {
           thermostat.increaseTemperature();
         }
-        expect(thermostat.showTemperature()).toEqual(32);
-      });
+      expect(thermostat.showTemperature()).toEqual(32);
     });
+  });
+
 
   describe("temperature decrease", function() {
 
@@ -55,5 +55,34 @@ describe ("Thermostat", function() {
     });
   });
 
+  describe("power saving", function() {
 
+    it("is on by default", function() {
+      expect(thermostat.powerSave).toBe(true);
+    });
+
+    it("it can be turned off", function() {
+      thermostat.powerSaveOff();
+      expect(thermostat.powerSave).toBe(false);
+    });
+  });
+
+  describe("reset temperature", function() {
+
+    it("resets temperature", function() {
+      for (i = 0; i < 10; i++) {
+        thermostat.increaseTemperature();
+      }
+      thermostat.resetTemperature();
+      expect(thermostat.showTemperature()).toEqual(20)
+    });
+
+    it("resets temperature", function() {
+      for (i = 0; i < 8; i++) {
+        thermostat.decreaseTemperature();
+      }
+      thermostat.resetTemperature();
+      expect(thermostat.showTemperature()).toEqual(20)
+    });
+  });
 });
