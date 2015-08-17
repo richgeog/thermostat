@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  <title>Jasmine Spec Runner v2.3.4</title>
-
+<link rel="stylesheet" type="text/css" href="public/thermostat.css"/>
+  <title>Thermostat</title>
 </head>
 
 <body>
   <div id="temperature"><h1></h1></div>
+  <button type="button" id="increase" > UP </button>
+  <button type="button" id="decrease" > DOWN </button>
+  <button type="button" id="reset" > RESET </button>
+  <input type="checkbox" id="power_save" checked onclick="powerSaveChange()"> Power Save<br>
 </body>
+
   <script src="src/Thermostat.js"></script>
   <script src="src/app.js"></script>
+
 </html>

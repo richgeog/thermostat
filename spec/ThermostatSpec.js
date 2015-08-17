@@ -65,6 +65,12 @@ describe ("Thermostat", function() {
       thermostat.powerSaveOff();
       expect(thermostat.powerSave).toBe(false);
     });
+
+    it("it can be turned on", function() {
+      thermostat.powerSaveOff();
+      thermostat.powerSaveOn();
+      expect(thermostat.powerSave).toBe(true);
+    })
   });
 
   describe("reset temperature", function() {
