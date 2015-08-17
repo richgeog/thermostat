@@ -4,19 +4,19 @@ var temperature = document.getElementById('temperature');
   temperature.innerHTML = thermostat.showTemperature();
 
 var upTemperature = document.getElementById('increase');
-  increase.onclick = function() {
+  upTemperature.onclick = function() {
     thermostat.increaseTemperature();
     temperature.innerHTML = thermostat.showTemperature();
   }
 
 var downTemperature = document.getElementById('decrease');
-  decrease.onclick = function() {
+  downTemperature.onclick = function() {
     thermostat.decreaseTemperature();
     temperature.innerHTML = thermostat.showTemperature();
   }
 
 var resetTemperature = document.getElementById('reset');
-  reset.onclick = function() {
+  resetTemperature.onclick = function() {
     thermostat.resetTemperature();
     temperature.innerHTML = thermostat.showTemperature();
   }
