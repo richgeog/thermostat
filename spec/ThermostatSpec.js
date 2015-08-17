@@ -48,8 +48,6 @@ describe ("Thermostat", function() {
   });
 
 
-
-
   describe("temperature decrease", function() {
 
     it("decreases temperature", function() {
@@ -60,7 +58,7 @@ describe ("Thermostat", function() {
 
   describe("minimum temperature", function() {
 
-    it("can only be decreased to 10 degrees", function() {
+    it("can only be decreased to minimum", function() {
       for (i = 0; i < 11; i++) {
         thermostat.decreaseTemperature();
       }
@@ -84,11 +82,20 @@ describe ("Thermostat", function() {
       thermostat.powerSaveOn();
       expect(thermostat.powerSave).toBe(true);
     })
+
+    it("it sets temp to powersave max if over", function() {
+      thermostat.powerSaveOff();
+      for (i = 0; i < 15; i++) {
+        thermostat.increaseTemperature();
+      }
+      thermostat.powerSaveOn();
+      expect(thermostat.showTemperature()).toEqual(25);
+    })
   });
 
   describe("reset temperature", function() {
 
-    it("resets temperature", function() {
+    it("when under default", function() {
       for (i = 0; i < 10; i++) {
         thermostat.increaseTemperature();
       }
@@ -96,7 +103,7 @@ describe ("Thermostat", function() {
       expect(thermostat.showTemperature()).toEqual(20)
     });
 
-    it("resets temperature", function() {
+    it("when over default", function() {
       for (i = 0; i < 8; i++) {
         thermostat.decreaseTemperature();
       }

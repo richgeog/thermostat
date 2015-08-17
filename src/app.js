@@ -24,6 +24,7 @@ var resetTemperature = document.getElementById('reset');
 function powerSaveChange() {
   if (document.getElementById('power_save').checked){
     thermostat.powerSaveOn();
+    temperature.innerHTML = thermostat.showTemperature();
   } else {
     thermostat.powerSaveOff();
   }
