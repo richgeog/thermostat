@@ -34,7 +34,20 @@ describe ("Thermostat", function() {
         }
       expect(thermostat.showTemperature()).toEqual(32);
     });
+
+    it("does not allow temp to go over max", function() {
+      thermostat.powerSaveOff();
+        for (i = 0; i < 16 ; i++) {
+          thermostat.increaseTemperature();
+        }
+      thermostat.powerSaveOn();
+      thermostat.increaseTemperature();
+      expect(thermostat.showTemperature()).toEqual(25);
+    });
+
   });
+
+
 
 
   describe("temperature decrease", function() {
