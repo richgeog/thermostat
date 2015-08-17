@@ -20,7 +20,22 @@ describe ("Thermostat", function() {
       thermostat.increaseTemperature();
       expect(thermostat.showTemperature()).toEqual(21);
     });
-  });
+
+    it("with power save mode on, max is 25", function() {
+      for (i = 0; i < 6; i++) {
+        thermostat.increaseTemperature();
+      }
+      expect(thermostat.showTemperature()).toEqual(25);
+    });
+
+    it("with power save mode off, max is 32", function() {
+      thermostat.powerSaveOff();
+        for (i = 0; i < 13; i++) {
+          thermostat.increaseTemperature();
+        }
+        expect(thermostat.showTemperature()).toEqual(32);
+      });
+    });
 
   describe("temperature decrease", function() {
 
@@ -39,5 +54,6 @@ describe ("Thermostat", function() {
       expect(thermostat.showTemperature()).toEqual(10);
     });
   });
+
 
 });
